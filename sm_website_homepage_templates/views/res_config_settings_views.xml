@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <record id="res_config_settings_view_form_homepage_templates" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.homepage.templates</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                  <xpath expr="//setting[@id='website_login_documents']" position="after">
+                        <setting id="sm_homepage_templates_setting"
+                              string="Homepage Templates"
+                              help="Use a polished public landing page as the homepage before users sign in.">
+                              <field name="sm_homepage_template_enabled"/>
+                              <div class="content-group" invisible="not sm_homepage_template_enabled">
+                                    <div class="row mt16">
+                                          <label class="col-lg-3 o_light_label" string="Template" for="sm_homepage_template"/>
+                                          <field name="sm_homepage_template"/>
+                                    </div>
+                                    <div class="row mt8">
+                                          <label class="col-lg-3 o_light_label" string="Brand Name" for="sm_homepage_brand_name"/>
+                                          <field name="sm_homepage_brand_name" placeholder="Your Company"/>
+                                    </div>
+                                    <div class="row mt8">
+                                          <label class="col-lg-3 o_light_label" string="Hero Title" for="sm_homepage_hero_title"/>
+                                          <field name="sm_homepage_hero_title" placeholder="Build a sharper website before users sign in."/>
+                                    </div>
+                                    <div class="row mt8">
+                                          <label class="col-lg-3 o_light_label" string="Hero Subtitle" for="sm_homepage_hero_subtitle"/>
+                                          <field name="sm_homepage_hero_subtitle" placeholder="Short value proposition for visitors."/>
+                                    </div>
+                                    <div class="row mt8">
+                                          <label class="col-lg-3 o_light_label" string="Phone" for="sm_homepage_phone"/>
+                                          <field name="sm_homepage_phone" placeholder="+1 555-555-5556"/>
+                                    </div>
+                                    <div class="row mt8">
+                                          <label class="col-lg-3 o_light_label" string="CTA Label" for="sm_homepage_cta_label"/>
+                                          <field name="sm_homepage_cta_label" placeholder="Contact Us"/>
+                                    </div>
+                                    <div class="row mt8">
+                                          <label class="col-lg-3 o_light_label" string="CTA URL" for="sm_homepage_cta_url"/>
+                                          <field name="sm_homepage_cta_url" placeholder="/contactus"/>
+                                    </div>
+                                    <div class="row mt16">
+                                          <div class="col-lg-9 offset-lg-3">
+                                                <button name="action_sm_preview_homepage" type="object" string="Preview Template" class="btn-secondary"/>
+                                                <button name="action_sm_apply_homepage" type="object" string="Apply as Homepage" class="btn-primary ms-2"/>
+                                          </div>
+                                    </div>
+                              </div>
+                        </setting>
+                  </xpath>
+            </field>
+      </record>
+</odoo>

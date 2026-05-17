@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <template id="homepage" name="Homepage Templates">
+            <t t-call="website.layout">
+                  <t t-set="no_header" t-value="True"/>
+                  <t t-set="no_footer" t-value="True"/>
+                  <main id="wrap" t-attf-class="sm-homepage sm-homepage--#{template_key}">
+                        <nav class="sm-home-nav">
+                              <a class="sm-home-brand" href="/sm/home">
+                                    <span class="sm-home-brand-mark" t-esc="brand_name[:1]"/>
+                                    <span t-esc="brand_name"/>
+                              </a>
+                              <div class="sm-home-links">
+                                    <a href="/sm/home">Home</a>
+                                    <a href="#features">Features</a>
+                                    <a href="/contactus">Contact</a>
+                              </div>
+                              <div class="sm-home-actions">
+                                    <a class="sm-home-phone" t-att-href="'tel:%s' % phone"><i class="fa fa-phone"/> <span t-esc="phone"/></a>
+                                    <a class="sm-home-signin" href="/web/login">Sign In</a>
+                              </div>
+                        </nav>
+
+                        <section t-if="template_key == 'vaultedge'" class="sm-hero sm-hero-vault">
+                              <div class="sm-hero-copy">
+                                    <span class="sm-eyebrow">Service Homepage</span>
+                                    <h1 t-esc="hero_title"/>
+                                    <p t-esc="hero_subtitle"/>
+                                    <div class="sm-hero-buttons">
+                                          <a class="sm-btn sm-btn-primary" t-att-href="cta_url" t-esc="cta_label"/>
+                                          <a class="sm-btn sm-btn-ghost" href="/web/login">Sign In</a>
+                                    </div>
+                                    <div class="sm-stats">
+                                          <div><strong>24/7</strong><span>Online Access</span></div>
+                                          <div><strong>20</strong><span>Landing Styles</span></div>
+                                          <div><strong>Odoo</strong><span>Native Flow</span></div>
+                                    </div>
+                              </div>
+                              <div class="sm-hero-visual">
+                                    <img class="sm-main-img" src="/sm_website_homepage_templates/static/src/img/vaultedge-hero.jpg" alt="Homepage hero"/>
+                                    <img class="sm-accent-img" src="/sm_website_homepage_templates/static/src/img/vaultedge-accent.jpg" alt="Homepage accent"/>
+                              </div>
+                        </section>
+
+                        <section t-elif="template_key == 'monoline'" class="sm-hero sm-hero-monoline">
+                              <div class="sm-monoline-overlay"/>
+                              <div class="sm-hero-copy">
+                                    <span class="sm-eyebrow">Agency Homepage</span>
+                                    <h1 t-esc="hero_title"/>
+                                    <p t-esc="hero_subtitle"/>
+                                    <div class="sm-hero-buttons">
+                                          <a class="sm-btn sm-btn-light" t-att-href="cta_url" t-esc="cta_label"/>
+                                          <a class="sm-btn sm-btn-outline-light" href="/web/login">Sign In</a>
+                                    </div>
+                              </div>
+                        </section>
+
+                        <section t-elif="template_key == 'company'" class="sm-hero sm-hero-company">
+                              <div class="sm-company-bg"/>
+                              <div class="sm-hero-copy">
+                                    <span class="sm-eyebrow">Corporate Homepage</span>
+                                    <h1 t-esc="hero_title"/>
+                                    <p t-esc="hero_subtitle"/>
+                                    <div class="sm-hero-buttons">
+                                          <a class="sm-btn sm-btn-company" t-att-href="cta_url" t-esc="cta_label"/>
+                                          <a class="sm-btn sm-btn-outline-light" href="/web/login">Sign In</a>
+                                    </div>
+                              </div>
+                              <div class="sm-company-panel">
+                                    <img src="/sm_website_homepage_templates/static/src/img/company-services.jpg" alt="Corporate service"/>
+                                    <div>
+                                          <strong>Business Ready</strong>
+                                          <span>Service, consulting, and corporate pages.</span>
+                                    </div>
+                              </div>
+                        </section>
+
+                        <section t-elif="template_key == 'ilanding'" class="sm-hero sm-hero-ilanding">
+                              <div class="sm-hero-copy">
+                                    <span class="sm-eyebrow">SaaS Homepage</span>
+                                    <h1 t-esc="hero_title"/>
+                                    <p t-esc="hero_subtitle"/>
+                                    <div class="sm-hero-buttons">
+                                          <a class="sm-btn sm-btn-saas" t-att-href="cta_url" t-esc="cta_label"/>
+                                          <a class="sm-btn sm-btn-ghost" href="/web/login">Sign In</a>
+                                    </div>
+                                    <div class="sm-saas-list">
+                                          <span><i class="fa fa-check"/> Product-led homepage</span>
+                                          <span><i class="fa fa-check"/> App preview section</span>
+                                          <span><i class="fa fa-check"/> Fast Odoo setup</span>
+                                    </div>
+                              </div>
+                              <div class="sm-saas-visual">
+                                    <img class="sm-saas-main" src="/sm_website_homepage_templates/static/src/img/ilanding-hero.webp" alt="SaaS hero"/>
+                                    <img class="sm-saas-phone" src="/sm_website_homepage_templates/static/src/img/ilanding-phone.webp" alt="App screen"/>
+                              </div>
+                        </section>
+
+                        <section t-elif="template_meta" t-attf-class="sm-hero sm-hero-gallery sm-hero-gallery--#{template_key}">
+                              <div class="sm-hero-copy">
+                                    <span class="sm-eyebrow" t-esc="template_meta['eyebrow']"/>
+                                    <h1 t-esc="hero_title"/>
+                                    <p t-esc="hero_subtitle"/>
+                                    <div class="sm-hero-buttons">
+                                          <a class="sm-btn sm-btn-gallery" t-att-href="cta_url" t-esc="cta_label"/>
+                                          <a class="sm-btn sm-btn-ghost" href="/web/login">Sign In</a>
+                                    </div>
+                                    <div class="sm-gallery-stats">
+                                          <span t-esc="template_meta['stat_one']"/>
+                                          <span t-esc="template_meta['stat_two']"/>
+                                          <span t-esc="template_meta['stat_three']"/>
+                                    </div>
+                              </div>
+                              <div class="sm-gallery-visual">
+                                    <img t-att-src="template_meta['image']" t-att-alt="template_meta['eyebrow']"/>
+                                    <div class="sm-gallery-panel">
+                                          <strong t-esc="template_meta['panel_title']"/>
+                                          <span t-esc="template_meta['panel_text']"/>
+                                    </div>
+                              </div>
+                        </section>
+
+                        <section t-else="" class="sm-hero sm-hero-clinic">
+                              <div class="sm-hero-copy">
+                                    <span class="sm-eyebrow">Clinic Homepage</span>
+                                    <h1 t-esc="hero_title"/>
+                                    <p t-esc="hero_subtitle"/>
+                                    <div class="sm-hero-buttons">
+                                          <a class="sm-btn sm-btn-clinic" t-att-href="cta_url" t-esc="cta_label"/>
+                                          <a class="sm-btn sm-btn-ghost" href="/web/login">Sign In</a>
+                                    </div>
+                              </div>
+                              <div class="sm-clinic-card">
+                                    <img src="/sm_website_homepage_templates/static/src/img/clinic-hero.webp" alt="Clinic hero"/>
+                                    <div class="sm-floating-card">
+                                          <strong>Next Available</strong>
+                                          <span>Today 2:30 PM</span>
+                                    </div>
+                              </div>
+                        </section>
+
+                        <section t-if="template_key == 'ilanding'" class="sm-full-template sm-full-ilanding">
+                              <div class="sm-full-heading">
+                                    <span>iLanding Flow</span>
+                                    <h2>Product story, feature proof, and app preview in one page.</h2>
+                              </div>
+                              <div class="sm-full-grid sm-full-grid-4">
+                                    <div><i class="fa fa-rocket"/><strong>Fast Launch</strong><span>Public landing page before login.</span></div>
+                                    <div><i class="fa fa-line-chart"/><strong>Lead Focused</strong><span>Clear CTA and conversion path.</span></div>
+                                    <div><i class="fa fa-mobile"/><strong>App Showcase</strong><span>Visual screen preview for SaaS tools.</span></div>
+                                    <div><i class="fa fa-sign-in"/><strong>Odoo Login</strong><span>Native sign-in stays intact.</span></div>
+                              </div>
+                              <div class="sm-full-split">
+                                    <img src="/sm_website_homepage_templates/static/src/img/ilanding-about.webp" alt="iLanding about"/>
+                                    <div>
+                                          <h3>Built for SaaS, startups, and product-led businesses.</h3>
+                                          <p>Use this homepage when the first screen needs a modern app pitch, concise benefits, and clear contact or sign-in actions.</p>
+                                          <a t-att-href="cta_url">Explore offer</a>
+                                    </div>
+                              </div>
+                        </section>
+
+                        <section t-if="template_key == 'company'" class="sm-full-template sm-full-company">
+                              <div class="sm-full-heading">
+                                    <span>Company Flow</span>
+                                    <h2>Corporate homepage with services, trust signals, and team-ready presentation.</h2>
+                              </div>
+                              <div class="sm-full-split sm-full-split-reverse">
+                                    <img src="/sm_website_homepage_templates/static/src/img/company-about.jpg" alt="Company about"/>
+                                    <div>
+                                          <h3>For consultants, agencies, and service companies.</h3>
+                                          <p>Classic business sections help visitors understand what you offer before they enter Odoo.</p>
+                                          <a t-att-href="cta_url">Talk to us</a>
+                                    </div>
+                              </div>
+                              <div class="sm-full-mini">
+                                    <img src="/sm_website_homepage_templates/static/src/img/company-team.jpg" alt="Company team"/>
+                                    <div><strong>Team profile ready</strong><span>Works well for company profile, service catalog, and contact-first websites.</span></div>
+                              </div>
+                        </section>
+
+                        <section t-if="template_key == 'arsha'" class="sm-full-template sm-full-arsha">
+                              <div class="sm-full-heading">
+                                    <span>Arsha Flow</span>
+                                    <h2>Startup landing page with partner-style trust and step-by-step value blocks.</h2>
+                              </div>
+                              <div class="sm-full-split">
+                                    <img src="/sm_website_homepage_templates/static/src/img/arsha-why.png" alt="Arsha why us"/>
+                                    <div>
+                                          <h3>Explain value fast, then push visitors to action.</h3>
+                                          <p>Good for startup websites, technology services, implementation partners, and online platforms.</p>
+                                          <a t-att-href="cta_url">Start now</a>
+                                    </div>
+                              </div>
+                              <div class="sm-full-grid sm-full-grid-3">
+                                    <div><strong>01</strong><span>Show main promise</span></div>
+                                    <div><strong>02</strong><span>Explain key benefits</span></div>
+                                    <div><strong>03</strong><span>Drive CTA or login</span></div>
+                              </div>
+                        </section>
+
+                        <section t-if="template_key == 'bizland'" class="sm-full-template sm-full-bizland">
+                              <div class="sm-full-heading">
+                                    <span>BizLand Flow</span>
+                                    <h2>Service business homepage with about, services, and lead capture structure.</h2>
+                              </div>
+                              <div class="sm-full-grid sm-full-grid-4">
+                                    <div><i class="fa fa-briefcase"/><strong>Services</strong><span>Show offer clearly.</span></div>
+                                    <div><i class="fa fa-users"/><strong>Customers</strong><span>Build trust quickly.</span></div>
+                                    <div><i class="fa fa-bullseye"/><strong>CTA</strong><span>Guide next step.</span></div>
+                                    <div><i class="fa fa-lock"/><strong>Login</strong><span>Keep Odoo access.</span></div>
+                              </div>
+                              <div class="sm-full-split">
+                                    <img src="/sm_website_homepage_templates/static/src/img/bizland-about.jpg" alt="BizLand about"/>
+                                    <div>
+                                          <h3>Business homepage that feels ready for sales.</h3>
+                                          <p>Use this style for B2B services, digital agencies, consultants, and operational companies.</p>
+                                          <a t-att-href="cta_url">Get consultation</a>
+                                    </div>
+                              </div>
+                        </section>
+
+                        <section t-if="template_key == 'upconstruction'" class="sm-full-template sm-full-upconstruction">
+                              <div class="sm-full-heading">
+                                    <span>UpConstruction Flow</span>
+                                    <h2>Construction homepage with project cards, quote CTA, and strong visual proof.</h2>
+                              </div>
+                              <div class="sm-full-split sm-full-split-reverse">
+                                    <img src="/sm_website_homepage_templates/static/src/img/upconstruction-card.jpg" alt="Construction service"/>
+                                    <div>
+                                          <h3>Show projects before visitors log in.</h3>
+                                          <p>Best for construction, contractors, architects, project services, and field operations.</p>
+                                          <a t-att-href="cta_url">Request quote</a>
+                                    </div>
+                              </div>
+                              <div class="sm-full-mini">
+                                    <img src="/sm_website_homepage_templates/static/src/img/upconstruction-project.jpg" alt="Construction project"/>
+                                    <div><strong>Project showcase</strong><span>Use visuals to make the first impression feel solid and premium.</span></div>
+                              </div>
+                        </section>
+
+                        <section id="features" class="sm-feature-band">
+                              <div class="sm-feature">
+                                    <i class="fa fa-paint-brush"/>
+                                    <h3>Template Choice</h3>
+                                    <p>Pick from 20 ready homepage styles from Odoo settings.</p>
+                              </div>
+                              <div class="sm-feature">
+                                    <i class="fa fa-sliders"/>
+                                    <h3>Simple Settings</h3>
+                                    <p>Change brand, title, subtitle, phone, and CTA without editing code.</p>
+                              </div>
+                              <div class="sm-feature">
+                                    <i class="fa fa-sign-in"/>
+                                    <h3>Native Login</h3>
+                                    <p>Visitors get a polished public page and users still sign in normally.</p>
+                              </div>
+                        </section>
+
+                        <footer class="sm-home-footer">
+                              <span>Designed for Odoo by <t t-esc="brand_name"/></span>
+                              <span>Template inspiration: ThemeWagon and BootstrapMade free templates.</span>
+                        </footer>
+                  </main>
+            </t>
+      </template>
+</odoo>
