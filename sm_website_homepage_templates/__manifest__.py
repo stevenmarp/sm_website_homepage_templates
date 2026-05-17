@@ -65,7 +65,7 @@ no-code homepage, Odoo lead generation homepage.
     'author': 'Steven Marp',
     'website': 'https://apps.odoo.com/apps/browse?order=Newest&repo_maintainer_id=512936',
     'license': 'OPL-1',
-    'price': 99,
+    'price': 38.92,
     'currency': 'USD',
     'depends': [
         'base',
